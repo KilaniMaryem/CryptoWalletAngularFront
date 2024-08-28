@@ -1,0 +1,71 @@
+<nav class="navbar bg-primary text-black container-xxl customHeader">
+  
+  
+  <img class="navbar-brand me-auto" src="assets/images/logo.png" alt="logo" style="height:70px;width:70px" />
+  
+  
+  <div class="d-flex align-items-center">
+    <a routerLink="/yourwallet/{{ seedPhrase }}/{{ userAddress }}" class="nav-link">
+      Back to Wallet
+    </a>
+    <button mat-icon-button class="btn ms-2" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+
+</nav>
+<div class="block-explorer">
+  <h2 class="text-primary">Block Explorer</h2>
+ 
+ 
+
+  <mat-tab-group class="text-primary">
+    <mat-tab label="Inbound" >
+      <div *ngIf="fetching; else transactionsList">
+        <mat-progress-spinner diameter="50"></mat-progress-spinner>
+      </div>
+      <ng-template #transactionsList>
+        <div class="transaction-list" *ngIf="inboundTransactions.length > 0; else noInboundTransactions">
+          <ul>
+            <li *ngFor="let tx of inboundTransactions.slice().reverse(); let i = index" class="text-black bg-primary bg-opacity-50 border border-primary">
+              <div class="border-bottom border-primary"><strong>From:</strong> {{ tx.from }}</div>
+              <div class="border-bottom border-primary"><strong>Value:</strong> {{ weiToEth(tx.value) }} ETH</div>
+              <div class="border-bottom border-primary"><strong>Chain:</strong> {{ tx.chain }}</div>
+              <div class="border-bottom border-primary"><strong>Block number:</strong> {{ tx.blockNumber }}</div>
+              <div class="border-bottom border-primary"><strong>Hash:</strong> {{ tx.hash }}</div>
+              <div><strong>Timestamp:</strong> {{ (tx.blockTimestamp * 1000) | date:'medium' }}</div>
+            </li>
+          </ul>
+        </div>
+        
+        <ng-template #noInboundTransactions>
+          <span>No inbound transactions found.</span>
+        </ng-template>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Outbound" >
+      <div *ngIf="fetching; else transactionsListOutbound">
+        <mat-progress-spinner diameter="50"></mat-progress-spinner>
+      </div>
+      <ng-template #transactionsListOutbound>
+        <div class="transaction-list" *ngIf="outboundTransactions.length > 0; else noOutboundTransactions">
+          <ul>
+            <li *ngFor="let tx of outboundTransactions.slice().reverse(); let i = index" class="text-black bg-primary bg-opacity-50 border border-primary">
+              <div class="border-bottom border-primary"> <strong>To:</strong>{{ tx.to }}</div>
+              <div class="border-bottom border-primary"><strong>Value:</strong> {{ weiToEth(tx.value) }} ETH</div>
+              <div class="border-bottom border-primary"><strong>Chain:</strong> {{ tx.chain }}</div>
+              <div class="border-bottom border-primary" ><strong>Block number:</strong> {{ tx.blockNumber }}</div>
+              <div class="border-bottom border-primary"><strong>Hash:</strong> {{ tx.hash }}</div>
+              <div><strong>Timestamp:</strong> {{ (tx.blockTimestamp * 1000) | date:'medium' }}</div>
+
+            </li>
+          </ul>
+        </div>
+        <ng-template #noOutboundTransactions>
+          <span>No outbound transactions found.</span>
+        </ng-template>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

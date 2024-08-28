@@ -1,0 +1,89 @@
+<div class="voiceAuthErrorInt">
+  <div class="content">
+    <div  class="error-container bg-primary bg-opacity-50 text-black border border-primary" style="margin-top:15px;border:solid">
+      <h2 class="text-danger">Authentication Error <br> <mat-icon>error_outline</mat-icon></h2>
+      <p>{{errorStatus}}</p>
+      <p *ngIf="errorStatus !== null">{{ errorMsg }}</p>
+      <p *ngIf="errorStatus === null">No error status provided.</p>
+    </div>
+    <div *ngIf="!uploaded" class="error-container bg-primary bg-opacity-50 text-black border border-primary">If you think this is an error, go back and try again.</div>
+
+    <div *ngIf="fileExistsError" class="bg-danger bg-opacity-50 text-black border border-primary error-container">{{ fileExistsError }}</div>
+
+    <div  *ngIf="errorMsg === 'We\'re unable to match your voice. It seems this wallet doesn\'t exist OR doesn\'t have a user voice associated with it. Would you like to add your voice?'  ">
+      <mat-divider class="divider text-black"></mat-divider>
+      <div class="error-container bg-primary bg-opacity-50 text-black  border border-primary">
+        Input your public address and start recording! Then wait a moment.
+      </div>
+      <br>
+      <mat-form-field appearance="fill" class="text-primary matField">
+        <mat-label>Public Address</mat-label>
+        <br>         
+        <input matInput [(ngModel)]="publicAddress" placeholder="Enter your public address" (input)="onInputChange()">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="text-primary matField">
+        <mat-label>Private Key</mat-label>
+        <br>
+        <input matInput [(ngModel)]="privateKey" placeholder="Enter your private key" (input)="onInputChange()" [type]="hidePrivateKey ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hidePrivateKey = !hidePrivateKey">
+          <mat-icon>{{ hidePrivateKey ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button id="requestMicrophoneAccess" type="button" class="btn btn-primary" (click)="toggleRecording(true)" [disabled]="!validAddress()">
+        <script>
+          document.getElementById('requestMicrophoneAccess').addEventListener('click', () => {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+              .then((stream) => {
+                console.log("Microphone access granted.");
+                stream.getTracks().forEach(track => track.stop());
+              })
+              .catch((error) => {
+                console.log("Microphone access denied: ", error);
+              });
+          });
+        </script>
+        {{ isRecording ? 'Stop Recording' : 'Start Recording' }}
+      </button>
+       
+       
+      
+      <div *ngIf="nonValid2" class="bg-primary bg-opacity-50 text-black error-container border border-primary" style="margin-top:3px">
+        {{ errorMessage1 }}
+        {{ errorMessage2 }}
+      </div>
+
+      <div *ngIf="isRecording">
+        <div class="bg-primary bg-opacity-50 text-black optional-message2 border border-primary" style="margin-top:5px">
+          <strong>Please record these words:</strong><br> {{ randomWords }}
+        </div>
+      </div>
+
+
+      
+      
+    </div>
+    
+    <div *ngIf="transcriptionError" class="bg-danger bg-opacity-50 text-black error-container border border-primary" style="margin-top:5px">
+      The words you spoke don't match those we generated for you.
+    </div>
+
+    <div *ngIf="exceedTimeMessage" class="bg-primary bg-opacity-50 text-black border border-danger error-container">
+      {{ exceedTimeMessage }}
+    </div>
+
+  
+    <div *ngIf="uploaded" class="bg-primary bg-opacity-50 text-black border border-primary error-container">
+       You just associated your wallet with your voice successfully! Go back now. 
+    </div>
+    
+
+    <div *ngIf="processing" class="spinner-border text-black" style="margin:10px"></div>
+
+  
+    <button type="button" class="btn btn-primary backBTN" (click)="navigateBack()" style="margin-top:10px">Go Back</button>
+    
+    <button type="button" class="btn btn-primary backBTN" [routerLink]="['/']">Back Home</button>
+  </div>
+</div>

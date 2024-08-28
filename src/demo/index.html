@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="../third-party/awsm/awsm.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+
+
+
+
+
+      <button id="requestMicrophoneAccess">Grant Microphone Access</button>
+  <script>
+    document.getElementById('requestMicrophoneAccess').addEventListener('click', () => {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then((stream) => {
+          console.log("Microphone access granted.");
+          stream.getTracks().forEach(track => track.stop());
+        })
+        .catch((error) => {
+          console.log("Microphone access denied: ", error);
+        });
+    });
+  </script>
+      
+  
+    </main>
+  </body>
+</html> 

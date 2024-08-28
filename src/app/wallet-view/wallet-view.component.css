@@ -1,0 +1,198 @@
+.customHeader {
+  width: 370px;
+  height: 100px;
+  margin-bottom: 0;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+ 
+}
+
+.customHeader .container-xxl {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.customHeader .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.customHeader .nav-link,
+.customHeader .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customHeader .nav-link {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.customHeader .btn {
+  width: 50px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding: 20px;
+  width: 370px;
+  height: 400px;
+}
+
+.walletName {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+
+.sendRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sendBTN {
+  width: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nftContainer,
+.tokenContainer {
+  width: 300px;
+  height: 300px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.nftScroll,
+.tokenScroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.itemsList {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.tokenLogo {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
+
+.tokenItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tokenItem img {
+  margin-right: 10px;
+}
+
+.logoutButton {
+  float: right;
+  margin-top: 20px;
+}
+
+mat-progress-spinner {
+  margin-top: 15px;
+}
+
+.mat-tab-label{
+  color:black;
+}
+
+.buttonSpinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.inputF {
+  padding: 8px;
+
+}
+
+.error-message {
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.confirmation-dialog {
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.confirmation-text {
+  width: 300px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.itemsList {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+button {
+  border-radius: 5px;
+}

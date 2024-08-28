@@ -1,0 +1,33 @@
+<div class="content">
+  <header>
+    <img src="assets/images/logo.png" class="headerLogo" alt="logo" />
+  </header>
+  <div class="bg-primary bg-opacity-75 text-black optional-message border border-primary" role="alert" >
+    Type your seed phrase in the field below to recover your wallet (it should include 12 words separated with spaces)
+  </div>
+ 
+  <mat-form-field appearance="fill" class="seedPhraseContainer bg-primary bg-opacity-25 " >
+    <textarea  matInput [(ngModel)]="typedSeed" (input)="seedAdjust($event)" placeholder="Type your seed phrase here..."
+      rows="4"></textarea>
+  </mat-form-field>
+ 
+  <div class="bg-primary bg-opacity-25 border border-primary buttonsDiv" >
+  <button mat-raised-button  type="button" class="btn btn-secondary button" [disabled]="typedSeed.split(' ').length !== 12"
+    (click)="recoverWallet()">
+    Recover Wallet
+  </button>
+
+  <div *ngIf="nonValid" class="seedPhraseWarning" >
+    <div>
+    <mat-icon>error_outline</mat-icon><br>
+    Invalid Seed Phrase!
+    </div>
+  </div>
+
+  <br>
+
+  <button type="button" class="btn btn-primary button" (click)="navigateHome()">
+    Back Home
+  </button>
+</div>
+</div>

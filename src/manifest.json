@@ -1,0 +1,31 @@
+{
+  "name": "newestCryptoWallet",
+  "manifest_version": 3,
+  "version": "1.0.3",
+
+    
+
+  "short_name": "CryptoWallet",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open Wallet v1.0.3",
+    "default_icon": "assets/images/logo.png"
+    
+  },
+  
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "*://*/*"
+  ],
+  "permissions": [
+    "audioCapture",
+    "tabCapture",
+    "activeTab",
+    "webNavigation",
+    "scripting",
+    "storage",
+    "tabs",
+    "offscreen"]
+  
+}

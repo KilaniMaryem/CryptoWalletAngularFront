@@ -1,0 +1,12 @@
+<div >
+<div class="scrollable-content" [ngClass]="mode === 'light' ? 'App bg-primary bg-opacity-50 ' : 'App bg-dark '" >
+
+  <router-outlet></router-outlet>
+ 
+</div>
+<div [ngClass]="mode === 'light' ? 'footer bg-primary bg-opacity-50 ' : 'footer bg-dark '">
+  <img src="assets/images/orangeLOGO.png" class="orangeLogo">
+  <button class="btn btn-secondary" (click)="toggleDarkMode()" style="border-radius:5px;height:30px"><mat-icon>brightness_medium</mat-icon></button>
+</div>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="tfa-container">
+  <header>
+    <img src="assets/images/logo.png" class="headerLogo" alt="logo" />
+  </header>
+  
+  <h2 class="text-primary">Two-Factor Authentication</h2>
+  <div *ngIf="setupMode === 'create' && qrCodeUrl" >
+    <div style="margin-bottom:3px;">Scan this QR Code </div>
+    <img [src]="qrCodeUrl" alt="QR Code" class="qr-code">
+  </div>
+  <div class="codeInput form-group" style="margin-top:3px;">
+    <label for="tfaCode" >Enter TFA Code</label>
+    <input type="text" id="tfaCode" [(ngModel)]="tfaCode" class="input form-control " placeholder="Enter the code" style="border-radius:5px;margin-bottom:2px">
+  </div>
+ 
+  <div *ngIf="setupMode === 'create'" class="bg-danger bg-opacity-50 text-black optional-message border border-primary"> Please store the token value somewhere safe, you will need it to authenticate as long as TFA is enbaled</div>
+
+  <div class="button-group">
+    <button *ngIf="setupMode === 'create' "(click)="verifyTfa()" class="btn btn-primary">
+      Verify 
+    </button>
+    <button *ngIf="setupMode === 'access' " (click)="verifyFromDB()" class="btn btn-secondary">Verify</button>
+    <button (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    
+  </div>
+  
+ 
+ 
+  <div *ngIf="errorMessage" class="bg-danger bg-opacity-50 text-black optional-message border border-primary">
+    {{ errorMessage }}
+  </div>
+
+
+</div>
+

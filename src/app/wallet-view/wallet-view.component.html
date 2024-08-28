@@ -1,0 +1,108 @@
+<nav class="navbar bg-primary text-black container-xxl customHeader">
+  <img class="navbar-brand me-auto" src="assets/images/logo.png" alt="logo" style="height:70px;width:70px" />
+  <div class="d-flex align-items-center">
+    <a [routerLink]="['/block-explorer']" [queryParams]="{ userAddress: wallet, seedPhrase: seedPhrase, chain: chain }" class="nav-link">
+      View Block Explorer
+    </a>
+    
+    <button mat-icon-button class="btn ms-2" (click)="goToSettings()">
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button class="btn ms-2" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</nav>
+
+<div class="content text-primary">
+  <br>
+  <div class=" walletName ">Wallet Public Address</div>
+  <div *ngIf="wallet" class="" >
+    {{ wallet.slice(0, 8) }}...{{ wallet.slice(-4) }}
+  </div>
+ 
+  <mat-progress-spinner *ngIf="fetching" diameter="50"></mat-progress-spinner>
+
+  <mat-tab-group *ngIf="!fetching" [selectedIndex]="0">
+    <mat-tab label="Transfer" >
+      <br>
+      <div *ngIf="balanceError; else balanceContent" class="bg-promary bg-opacity-50 text-primary error-message border border-primary">
+        Error fetching balance
+      </div>
+      <ng-template #balanceContent>
+        <div class="txBox">
+          <h3 >Native Balance</h3>
+          <h1 >{{ balance.toFixed(6) }} ETH</h1>
+          <div class="sendRow">
+            <label for="sendToAddress" class="col-form-label inputF" style="width: 90px; text-align: left;">To:</label>
+            <input type="text" class="form-control"  id="sendToAddress" [(ngModel)]="sendToAddress" placeholder="0x..." style="border-radius:5px;" />
+          </div>
+          <div class="sendRow">
+            <label for="amountToSend" class="col-form-label inputF" style="width: 90px; text-align: left;">Amount:</label>
+            <input type="text" class="form-control" id="amountToSend" [(ngModel)]="amountToSend" (input)="onInputChange()" placeholder="ETH you wish to send..." style="border-radius:5px;" />
+          </div>
+          <div class="buttonSpinnerContainer">
+            <button type="button" class="btn btn-primary sendBTN" (click)="showConfirmationDialog()" [disabled]="processing || !sendToAddress || amountToSend === null">Send ETH</button>
+            <div *ngIf="processing" class="spinner-border text-primary" style="margin-bottom:10px"></div>
+          </div>
+          <div *ngIf="errorMessage" class="bg-primary bg-opacity-50 text-black error-message border border-primary">
+            {{ errorMessage }}
+          </div>
+          <br>
+          <div *ngIf="showConfirmation" class="confirmation-dialog">
+            <p class="bg-primary bg-opacity-50 text-black border border-primary confirmation-text">Are you sure you want to send {{ amountToSend }} ETH to <br> {{ sendToAddress }}?</p>
+            <br>
+            <div class="confirmation-buttons">
+              <button type="button" class="btn btn-primary button" (click)="confirmSend()">Yes, I am sure</button>
+              <button type="button" class="btn btn-secondary button" (click)="cancelSend()">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showBlockedAddressWarning" class="bg-primary bg-opacity-50 text-black error-message border border-primary">This address is on your blocked list</div>
+      </ng-template>
+      <br>
+    </mat-tab>
+
+    <mat-tab label="NFTs">
+      <br>
+      <div *ngIf="nftError; else nftContent" class="bg-primary bg-opacity-50 text-white error-message border border-primary">
+        Error fetching NFTs
+      </div>
+      <ng-template #nftContent>
+        <div *ngIf="nftList && nftList.length > 0; else noNfts">
+          <div class="nftContainer">
+            <div class="nftScroll">
+              <ul>
+                <li *ngFor="let nft of nftList" class="nft-card">
+                  <div class="nft-info">
+                    <h3>{{ nft.title }}</h3>
+                    <p>{{ nft.description }}</p>
+                    <div><strong>Contract Address:</strong> {{ nft.contract.address }}</div>
+                    <div><strong>Token ID:</strong> {{ nft.id.tokenId }}</div>
+                    <div><strong>Token Type:</strong> {{ nft.id.tokenMetadata.tokenType }}</div>
+                    <div *ngIf="nft.metadata.attributes && nft.metadata.attributes.length > 0">
+                      <h4>Attributes:</h4>
+                      <ul>
+                        <li *ngFor="let attribute of nft.metadata.attributes">
+                          <strong>{{ attribute.trait_type }}:</strong> {{ attribute.value }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ng-template #noNfts>
+          <br>
+          <span class="text-white">You seem to not have any NFTs yet</span>
+        </ng-template>
+      </ng-template>
+      
+    </mat-tab>
+  </mat-tab-group>
+  <br>
+</div>
+
+

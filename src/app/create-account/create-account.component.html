@@ -1,0 +1,77 @@
+<div class="CreateAccInterface ">
+  <header>
+    <img src="assets/images/logo.png" class="headerLogo" alt="logo" />
+  </header>
+  <span class="icon-warning"></span>
+  <div class="bg-primary bg-opacity-50 text-black optional-message border border-primary" style="margin-bottom: 8px;">
+    Once you generate the seed phrase, save it securely in order to recover your wallet in the future.
+    <strong>You have to click on the confirm button</strong>
+  </div>
+
+  <button type="button" class="btn btn-primary firstBTN" (click)="generateWallet()">
+    Generate A New Wallet
+  </button>
+
+  <div class="seedPhraseContainer bg-primary bg-opacity-50 text-black " *ngIf="newSeedPhrase">
+    <strong>Your public address is </strong>:  {{publicAddress}} 
+    <br>
+    <strong>Your public key is </strong>:  {{publicKey}} 
+    <br>
+    <strong>Your seed is: </strong><br>
+    <button mat-icon-button (click)="toggleSeedVisibility()" >
+      <mat-icon>  {{ showSeed ? 'visibility_off' : 'visibility' }} </mat-icon>
+    </button>
+    <div *ngIf="showSeed">{{newSeedPhrase}}</div> 
+    <br>
+    <strong>Your private key is </strong>: <br>
+    <button mat-icon-button (click)="togglePrivateKeyVisibility()">
+      <mat-icon>  {{ showPrivateKey ? 'visibility_off' : 'visibility' }} </mat-icon>
+    </button>
+    <div *ngIf="showPrivateKey">{{privateKey}}</div>
+  </div>
+  <mat-divider class="divider text-primary " style="margin-bottom:5px"></mat-divider>
+  <div class="bg-primary bg-opacity-50 text-black optional-message border border-primary" style="margin-bottom:3px;">
+    <strong>[Optional]</strong> You can add your email address to receive alerts about suspected access to your wallet.
+  </div>
+
+  <div class="emailInputContainer text-primary">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" style="border-radius:5px;margin:3px" class="border border-primary" [(ngModel)]="emailAddress" placeholder="Enter your email address" />
+  </div>
+  <mat-divider class="divider text-primary " style="margin-bottom:5px"></mat-divider>
+  <div class="bg-primary bg-opacity-50 text-black optional-message border border-primary" style="margin-bottom:3px;"><strong>[Optional]</strong> Do you want to record your voice to use it to authenticate later?</div>
+ 
+  <button id="requestMicrophoneAccess" type="button" class="btn btn-primary customBTN" (click)="toggleRecording()">
+    {{ isRecording ? 'Stop Recording' : 'Start Recording' }}
+  </button>
+  
+  <div *ngIf="isRecording">
+    <div class="bg-primary bg-opacity-50 text-black optional-message border border-primary"><strong>Please record these words:</strong><br>{{randomWords}}</div>
+  </div>
+
+  <div *ngIf="exceedTimeMessage" class="bg-danger bg-opacity-50 text-black border border-danger optional-message2">
+    {{ exceedTimeMessage }}
+  </div>
+
+  <div *ngIf="transcriptionError" class="bg-danger bg-opacity-50 text-black border border-danger optional-message2" style="margin-top:5px">
+    The words you spoke don't match those we generated for you.
+  </div>
+  <br>
+  <div *ngIf="isTranscribing" class="spinner-border text-primary"  >
+  </div>
+  <mat-divider class="divider text-primary "></mat-divider>
+  <button type="button" class="btn btn-primary customBTN" (click)="confirmUserCreation()">
+    Confirm
+  </button>
+  <button type="button" class="btn btn-primary customBTN" (click)="setWalletAndMnemonic()">
+    Open Your New Wallet
+  </button>
+
+  <br>
+
+  <button type="button" class="btn btn-secondary customBTN" (click)="navigateHome()">
+    Back Home
+  </button>
+</div>
+
+

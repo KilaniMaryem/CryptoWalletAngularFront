@@ -1,0 +1,22 @@
+[
+    "apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon", "mango", "nectarine",
+    "orange", "pear", "breathe", "buy", "weather", "strawberry", "angelic", "ugly", "violet",
+    "watermelon", "accept", "arrive", "believe", "build", "capture", "choose", "create", "deliver",
+    "destroy", "explain", "find", "forget", "gather", "give", "handle", "imagine", "inspire", "learn",
+    "manage", "measure", "move", "offer", "prepare", "produce", "receive", "remember", "search",
+    "speak", "start", "stop", "test", "think", "travel", "understand", "use", "wait", "write", "bear",
+    "cat", "dog", "elephant", "giraffe", "get", "jaguar", "koala", "lion", "monkey", "penguin",
+    "raccoon", "snake", "tiger", "wolf", "zebra", "rose", "sunflower", "orchid", "lily", "daisy",
+    "violet", "iris", "horse", "marigold", "lavender", "jasmine", "lotus", "new york", "angeles",
+    "chicago", "houston", "philadelphia", "sun", "dallas", "austin", "francisco", "columbus",
+    "indianapolis", "charlotte", "seattle", "denver", "detroit", "boston", "memphis", "baltimore",
+    "vegas", "come", "atlanta", "miami", "cleveland", "tulsa", "awesome", "brilliant", "caring",
+    "charming", "confident", "dedicated", "dynamic", "energetic", "exciting", "friendly", "hardworking",
+    "honest", "inspiring", "joyful", "kind", "motivated", "optimistic", "passionate", "patient",
+    "positive", "reliable", "respectful", "skilled", "supportive", "talented", "trustworthy", "wonderful",
+    "angry", "annoyed", "dishonest", "displeased", "frustrated", "greedy", "insecure", "moody", "negative",
+    "pessimistic", "rude", "selfish", "and", "unfriendly", "unreliable", "untrustworthy", "vain",
+    "vindictive", "engineer", "teacher", "doctor", "nurse", "accountant", "designer", "manager", "analyst",
+    "scientist", "architect", "lawyer", "developer", "unemployed", "chef", "pharmacist", "journalist",
+    "sofa", "table", "chair", "lamp", "bed", "armchair", "television", "machine", "bookshelf"
+]

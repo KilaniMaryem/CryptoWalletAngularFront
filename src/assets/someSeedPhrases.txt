@@ -1,0 +1,86 @@
+"air aunt vote apology fence leopard unhappy nest defy tobacco park pudding"
+"cargo label pyramid kiss gesture view veteran pact concert wild episode route"
+"blast pioneer wink van remain elder employ flee river tell rent affair"
+
+
+
+______CONTAINS 0.0606 ETH______________________
+"Your seed is:
+fresh gesture warfare friend pulp ill blind jealous peace kitchen address media
+-->Your public address is: 0xc75c995516320d3c72BfD7870588f67826a4e9Ab
+Your public key is: 0x038daf85fef7293338fcd1fa54ec1f0083a92b3f2a4494b5d9a8916fd9f02e2b91
+Your private key is:
+0x42aaa1503a78a7e2d195daf8fd632d7154283f8e54d3a8733039b9a1a134658d
+FETCH SPOLIA    / http://localhost:3000/api/fetch?userAddress=0xc75c995516320d3c72BfD7870588f67826a4e9Ab&chain=0xaa36a7
+"
+
+
+
+______CONTAINS 0.0182 ETH______________________
+"Your seed is:
+aim imitate sword flock blade struggle future surround edit foam jealous tortoise
+-->Your public address is: 0x508B18D2916fB17Af5dE96B899f5fD80B89FC575
+Your public key is: 0x02e1881f5784d59233289f8a0b30bdb33ed6e3e94982ad1a0e4db520f7bd08925d
+Your private key is:
+0x750d5f9572e9ce2c87157a9368895ee3860fdfc17b734aa2e6e667d19aa4eb3d
+ETCH SPOLIA    / http://localhost:3000/api/fetch?userAddress=0x508B18D2916fB17Af5dE96B899f5fD80B89FC575&chain=0xaa36a7
+"
+
+"public @: 0x4d2044D8D568c1644158625930De62c4AbBB004a"
+
+http://localhost:3000/api/fetch?userAddress=0x4d2044D8D568c1644158625930De62c4AbBB004a&chain=0x1
+http://localhost:3000/api/fetch?userAddress=0x4d2044D8D568c1644158625930De62c4AbBB004a&chain=0x89
+
+
+
+
+______CONTAINS 0.001 ETH______________________
+gate need tiny cigar food start cupboard broom edit toilet promote dizzy
+0xe1AF1d5e92Fc9fF928397cBA96aa1a992d7F3cf8 public @
+0x0309b68b4d30296838fa427f52ef0a466ccf564a4295e93a91e36a7dbe775bb994 : public key
+0x3ccf6b95fa69cf4ceae875c6e6243ad8ed19cfa05c7932d645bd76f21e2bb56f  private key
+
+
+Your seed is:
+helmet bar outer school assume animal fresh heart peanut autumn broom romance
+Your public address is: 0x089D7722e02c407c60e4B48762662cA2DE4976b8
+Your public key is: 0x03497b0acec151c47ad918e007e52267ac589c80e9d63042cc401da129d93a8869
+Your private key is:
+0xa593d150a5c999dbc7524b3d0b61040fe93381ee4d5918167c2f6b032e57aa31
+
+
+@: 0xD60375f8835DB95B6549f398dc6826cc694627e7
+priateKey:0x53f29c493504da706422e3d8d79b9d3f5f2433a84b9b5d878640995fffbf7318
+
+
+Your public address is : 0x18910C5aD1b59a8b0f9841d16D68245Ca81AF1d2
+0x03291b6b6c822d223c11306317894172caae17818345abaa23836be7b524be42e0
+
+0xec8b6523eDC49776ffcc3b64de9fb3a1c66a4748
+0x800dac36c8ef426e1c5478cb96f6d2b797f278b253e20fe69322d5eac1aff530
+
+0xc619647D2DFE2B95bE11f00f64fD2A9a3BE358a7
+0xdf93611a793f12615ab90c9f6d001d2c1a11962b3ae34755374c576a7d154f3f
+
+
+0x28167F35bCbF97B9fC0D878Abea5D31ed9245322
+0x89bc0a6b3bb50a93634fe7a54a92e38069126f7aa10663dc8d6b41dfcf3e9a3d
+227755
+
+0x4d1F58b68F00955f48e6D1C683652fc0A2E2b7c8
+0x8afa5d6a07b7cdc15c2ef3bc0026ac257814e9dd65d37595b18fe423034730a0
+210380
+entry creek index exhibit neglect garden margin liquid people spare company symbol
+
+0xeF0B7aB3429262A296AD35b27C5498161DBc5225
+0x86d1ced95709bf4fc9d4a81218beb5455920d88bb77683e3d289655ddbbba1c6
+
+0x131fBC18aF6d78b8B007cD824769Bc739FF42917
+neutral wood skate add review leader duty file sauce matter orient disease
+
+0x00c7C7Cb7BF4e0F87f8d1173a555e3a7ac9268fB
+0x1800d4311aace0625fe3b50442ebcd287ba0a8d3ce0a5eb1d003cd5d28855227
+
+
+0x3495Cf42FBbEA966e30fb2358698703dD6a2518C
+0x0a89fa6b3356144015eae7887b62766942ce9de307a33d6cb4877e9d1644fe67

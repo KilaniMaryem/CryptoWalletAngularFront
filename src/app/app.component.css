@@ -1,0 +1,39 @@
+
+.App {
+    text-align: center;
+    width: 500px;
+    height: 500px;
+
+ 
+}
+.footer {
+    width: 370px;
+    height: 120px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  
+  
+}
+.scrollable-content {
+    height: 500;
+    width: 370px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    padding: 0 16px; 
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+ 
+  }
+  .orangeLogo{
+    height: 80px;
+    width:80px;
+ 
+  }
+
+
+
+

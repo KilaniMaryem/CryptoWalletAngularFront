@@ -1,0 +1,102 @@
+<nav class="navbar bg-primary text-black container-xxl customHeader">
+    <img class="navbar-brand me-auto" src="assets/images/logo.png" alt="logo" style="height:70px;width:70px" />
+    <div class="d-flex align-items-center">
+        <a routerLink="/yourwallet/{{ SeedPhrase }}/{{ publicAddress }}" class="nav-link">
+            Back to Wallet
+        </a>
+      <button mat-icon-button class="btn ms-2" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+</nav>
+<div class="text-primary walletName">Wallet Public Address</div>
+<div *ngIf="publicAddress" class="text-primary " >
+  {{ publicAddress.slice(0, 8) }}...{{ publicAddress.slice(-4) }}
+</div>
+<div class="settingsInt">
+
+<div class="card-container" style="margin-top:80px">
+
+  <mat-card class="card bg-secondary border border-primary text-primary" (click)="toggleCard('walletInfo')">
+    <mat-card-header>
+        <mat-card-title style="font-weight:bold;">Wallet Info</mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="activeCard === 'walletInfo'" class="text-white">
+        <p><strong class="text-primary">Seed Phrase:</strong><br> {{ SeedPhrase }}</p>
+        <p><strong class="text-primary">Public Key:</strong><br> {{ publicKey }}</p>
+        <p><strong class="text-primary">Private Key:</strong><br> {{ privateKey }}</p>
+    </mat-card-content>
+</mat-card>
+    <mat-card class="card bg-secondary border border-primary text-primary" (click)="toggleCard('tfaSettings')">
+      <mat-card-header>
+        <mat-card-title style="font-weight:bold;">TFA Settings</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="activeCard === 'tfaSettings'">
+        <p>Manage your two-factor authentication settings here.</p>
+        <button  type="button" class="btn btn-primary customBTN" (click)="toggleTfa()" style="border-radius:5px">
+          {{ tfaEnabled ? 'Disable' : 'Enable' }}
+        </button>
+      </mat-card-content>
+    </mat-card>
+  
+    
+    <mat-card class="card bg-secondary border border-primary text-primary" (click)="toggleCard('blockedAddresses')">
+      <mat-card-header>
+        <mat-card-title style="margin-bottom:5px;font-weight:bold;">View Blocked Addresses</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="activeCard === 'blockedAddresses'" class="blocked-list">
+        <div>
+        <button type="button" class="btn btn-primary customBTN" (click)="toggleAddBlockedAddress()" style="border-radius:5px">
+          Add a Blocked Address
+        </button>
+        <div *ngIf="isAddingBlockedAddress">
+          <input [(ngModel)]="newBlockedAddress" type="text" placeholder="Enter address" class="form-control inputB" />
+          <input [(ngModel)]="newNote" type="text" placeholder="Enter note (optional)" class="form-control inputB" />
+          <button type="button" class="btn btn-primary customBTN" (click)="addBlockedAddress()" style="border-radius:5px">
+            Confirm
+          </button>
+        </div>
+      </div>
+        <div >
+        <div class="scrollable-content" *ngIf="blockedAddresses.length > 0">
+          <div *ngFor="let address of blockedAddresses">
+            <hr>
+            <p><strong>Address:</strong> {{ address.publicAddress }}</p>
+            <p *ngIf="address.note"><strong>Note:</strong> {{ address.note }}</p>
+            <button type="button" class="btn btn-primary customBTN" (click)="unblockAddress(address.publicAddress)" style="border-radius:5px">
+              Unblock
+            </button>
+          </div>
+        </div>
+      </div>
+      </mat-card-content>
+    </mat-card>
+    
+    
+    
+  
+  
+    <mat-card class="card bg-secondary border border-primary text-primary" (click)="toggleCard('addMail')">
+      <mat-card-header>
+        <mat-card-title style="font-weight:bold;">Mail</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="activeCard === 'addMail'">
+        <div *ngIf="email && !isEditing; else editEmailTemplate" class="text-white">
+          <p><strong class="text-primary">Email Address:</strong><br>{{ email }}</p>
+          <button type="button" class="btn btn-primary customBTN" (click)="toggleEdit()" style="border-radius:5px">
+            Update
+          </button>
+        </div>
+        <ng-template #editEmailTemplate>
+          <p>{{ email ? 'Update your email address:' : 'Add your email address:' }}</p>
+          <input [(ngModel)]="newEmail" type="email" placeholder="Enter your email" class="form-control mb-2" />
+          <button type="button" class="btn btn-primary customBTN" (click)="updateEmail()" style="border-radius:5px">
+            {{ email ? 'Confirm' : 'Add' }}
+          </button>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    
+    
+  </div>  
+</div>

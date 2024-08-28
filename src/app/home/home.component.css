@@ -1,0 +1,53 @@
+.HomeInterface {
+  text-align: center;
+  width: 370px;
+  height: 200px;
+  overflow-y: auto;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 20px;
+
+
+
+}
+
+h1 {
+
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+  margin: 0;
+  height: 100px;
+  width: 350px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+
+ 
+
+}
+
+button {
+  width: 70%;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+.FirstBtn {
+  margin-top: 15px;
+}
+
+.headerLogo{
+  width:100px;
+  height:100px;
+  margin-top:15px;
+  margin-bottom:15px;
+}

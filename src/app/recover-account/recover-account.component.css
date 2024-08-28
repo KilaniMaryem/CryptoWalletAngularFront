@@ -1,0 +1,62 @@
+.optional-message {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.seedPhraseContainer {
+
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 5px;
+}
+
+.seedPhraseWarning {
+  width: 300px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  padding:5px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn {
+  width: 90%;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+
+
+.content {
+  width: 370px;
+  height: 480px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.headerLogo{
+  width:100px;
+  height:100px;
+  margin: 10px;
+}
+
+.button{
+  border-radius:5px;
+}
+.buttonsDiv{
+  width:350px;
+  height:120px;
+  border-radius:5px;
+  margin-top:5px;
+  
+}
