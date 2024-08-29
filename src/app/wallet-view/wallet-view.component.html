@@ -35,7 +35,7 @@
           <h1 >{{ balance.toFixed(6) }} ETH</h1>
           <div class="sendRow">
             <label for="sendToAddress" class="col-form-label inputF" style="width: 90px; text-align: left;">To:</label>
-            <input type="text" class="form-control"  id="sendToAddress" [(ngModel)]="sendToAddress" placeholder="0x..." style="border-radius:5px;" />
+            <input type="text" class="form-control"  id="sendToAddress" [(ngModel)]="sendToAddress" (input)="onInputChange2()" placeholder="0x..." style="border-radius:5px;" />
           </div>
           <div class="sendRow">
             <label for="amountToSend" class="col-form-label inputF" style="width: 90px; text-align: left;">Amount:</label>

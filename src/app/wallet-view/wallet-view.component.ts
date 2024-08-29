@@ -36,6 +36,7 @@ export class WalletViewComponent implements OnInit {
   blockedAddresses: any;
   showBlockedAddressWarning: boolean = false;
   tfaEnabled: boolean = false;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -108,9 +109,15 @@ export class WalletViewComponent implements OnInit {
       this.errorMessage = null;
     }
   }
+  onInputChange2() {
+    if (this.showBlockedAddressWarning) {
+    this.showBlockedAddressWarning = false;}
+  }
+ 
   /*---------------------------------------------------------------------------------------------*/
   showConfirmationDialog(): void {
     this.showConfirmation = true;
+    
   }
   /*---------------------------------------------------------------------------------------------*/
 
@@ -157,9 +164,6 @@ export class WalletViewComponent implements OnInit {
       this.errorMessage = 'Insufficient balance';
       return;
     }
-
-
-
     this.showBlockedAddressWarning = false;
     this.showConfirmation = false
     await this.performTransaction();

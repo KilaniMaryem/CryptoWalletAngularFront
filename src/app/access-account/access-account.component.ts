@@ -38,8 +38,9 @@ export class AccessAccountComponent {
     private wordGeneratorService: WordsGeneratorService,
     private cdRef: ChangeDetectorRef,
     private emailService: EmailService) { }
+
 /*---------------------------------------------------------------------------------------------------------------------*/
-    getEmailAddress(): Promise<string> {
+    getEmailAddressAndTfa(): Promise<string> {
       return new Promise<string>((resolve, reject) => {
         if (this.publicAddress) {
          
@@ -59,12 +60,33 @@ export class AccessAccountComponent {
       });
     }
 
+
+    getTfa(): Promise<boolean> {
+      return new Promise<boolean>((resolve, reject) => {
+        if (this.publicAddress) {
+         
+          this.http.get<{ tfaEnabled: boolean }>(`http://localhost:3000/user/get/${this.publicAddress}`)
+            .subscribe(
+              response => {
+                resolve(response.tfaEnabled); 
+              },
+              error => {
+                console.error('Error fetching tfaEnabled:', error);
+                reject('Error fetching tfaEnabled'); 
+              }
+            );
+        } else {
+          reject('Public address is not defined');
+        }
+      });
+    }
   
   /*---------------------------------------------------------------------------------------------------------------------*/
   async accessWallet() {
-   
+    
     try{
-      this.emailAddress=await this.getEmailAddress()
+      this.emailAddress=await this.getEmailAddressAndTfa()
+      this.tfaEnabled=await this.getTfa()
     }catch(err){
       console.error(err)
     }
